@@ -3,6 +3,7 @@
 const compose = (...fns) => {
   const events = {};
   const f = x => {
+    if (fns.length === 0) return x;
     try {
       return fns.reverse().reduce((pr, curr) => curr(pr), x);
     } catch (e) {
